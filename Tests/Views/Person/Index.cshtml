@@ -1,0 +1,29 @@
+﻿@using Tests.Entities
+ @model  List<Name>
+<div class="align-content-center" ><h1>Xosh Gelmisiz</h1></div>
+<div><a class="btn btn-danger btn-lg" asp-action="create" asp-controller="Person">Create</a></div>
+
+
+<div class="container" >
+
+
+    @foreach(var item in Model)
+    {
+        
+        
+        <h2>@item.Ad</h2>
+        <h2>@item.Soyad</h2>
+        <a class="btn btn-primary" asp-controller="person" asp-action="update" asp-route-id="@item.Id">Edit</a>
+        <a class="btn btn-primary" asp-controller="person" asp-action="delete" asp-route-id="@item.Id">Delete</a>
+
+
+    }
+
+
+
+
+
+
+
+</div>
+
