@@ -4,8 +4,8 @@ using Tests.DataBase;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ClassContext>(opt =>
 {
-
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+    var serverVersion = new MySqlServerVersion(new Version(8, 0, 0));
+    opt.UseMySql(builder.Configuration.GetConnectionString("Default"), serverVersion);
 });
 // Add services to the container.
 builder.Services.AddControllersWithViews();
